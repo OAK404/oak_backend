@@ -30,20 +30,20 @@ login_manager.init_app(app)
 
 # Allowed servers for cross-origin resource sharing (CORS)
 # Static allowed origins for local development
+# Allowed servers for cross-origin resource sharing (CORS)
 allowed_origins = [
-    'http://localhost:4500',
-    'http://127.0.0.1:4500',
-    'http://localhost:4599',
-    'http://127.0.0.1:4599',
-    'http://localhost:4600',
-    'http://127.0.0.1:4600',
-    'http://localhost:4000',
-    'http://127.0.0.1:4000',
-    'https://open-coding-society.github.io',
-    # Regex pattern to match any subdomain of opencodingsociety.com
-    r'https://.*\.opencodingsociety\.com',
-    'https://opencodingsociety.com',
-    'https://acs.opencodingsociety.com',
+    "http://localhost:4500",
+    "http://127.0.0.1:4500",
+    "http://localhost:4599",
+    "http://127.0.0.1:4599",
+    "http://localhost:4600",
+    "http://127.0.0.1:4600",
+    "http://localhost:4000",
+    "http://127.0.0.1:4000",
+    "https://open-coding-society.github.io",
+    "https://opencodingsociety.com",
+    "https://acs.opencodingsociety.com",
+    r"https://.*\.opencodingsociety\.com",
 ]
 
 
@@ -83,7 +83,7 @@ app.config['JWT_TOKEN_NAME'] = JWT_TOKEN_NAME
 
 
 # Database settings
-IS_PRODUCTION = os.environ.get('IS_PRODUCTION') or None
+IS_PRODUCTION = os.environ.get('IS_PRODUCTION', 'false').lower() == 'true'
 dbName = 'user_management'
 DB_ENDPOINT = os.environ.get('DB_ENDPOINT') or None
 DB_USERNAME = os.environ.get('DB_USERNAME') or None
